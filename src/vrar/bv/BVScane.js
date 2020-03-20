@@ -1,6 +1,3 @@
-
-
-
 import { BVVideo } from './BVVideo.js';
 import { BVStand } from './BVStand.js';
 /*import BVReflection from './BVReflection'
@@ -236,6 +233,7 @@ export class BVScane  {
             video.preload = 'auto';
             video.autoload = true;
             video.autoplay = true;
+            video.inline = true;
             video.loop = true;
             video.crossorigin="Anonymous"
             video.src = link;
