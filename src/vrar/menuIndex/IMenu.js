@@ -90,11 +90,6 @@ export class MTV  {
             var bat= new DButton(this.window.content,5,35,"test",function(){
                 bvScane.setVideo(input.text, chek.value);
             })
-
-
-      
-
-
         }
         
         this.setBV=function(b){
@@ -122,6 +117,11 @@ export class MHelp  {
         this.dCont = new DCont(this.par.dCont);
 
 
+        this.button = new DButton(this.par.dCont, this.margin, 0, 'SKIP', () => {
+            self.sah=2222;
+            self.button.visible=false;
+            self.dCont.visible=false;
+        })
         //this.window=new DWindow(this.dCont,0,0,"this.type");
 
         this.funDrag=function(){
@@ -134,11 +134,13 @@ export class MHelp  {
             this.array=[]
 
 
-            for (var i = 0; i < arr.length; i++) {
-                              
+            for (var i = 0; i < arr.length; i++) {                              
                 this.array[i]=new MHBlok(this, arr[i], this.funDrag);
                 this.array[i].idArr=i
             }
+
+            
+
         } 
 
 
@@ -149,12 +151,16 @@ export class MHelp  {
                 _w=w;
                 _h=h;
                 _s=s;
-            }
+            }            
+
 
             if(this.array==undefined)return
             for (var i = 0; i < this.array.length; i++) {
                 this.array[i].setXY(_w/_s/2,_h/_s/2);
             }
+
+            this.button.x=(_w/_s-this.button.width)/2
+            this.button.y=_h/_s-50;
         }        
 
         this.md=function(e){          

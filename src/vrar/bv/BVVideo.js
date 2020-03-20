@@ -27,7 +27,7 @@ export class BVVideo  {
             dC.div.appendChild(this.video); */
 
         this.texture = undefined 
-        this.material= undefined 
+        this.material = undefined 
         
         this.canvas = undefined; 
         this.ctx = undefined; 
