@@ -233,7 +233,7 @@ export class BVScane  {
             video.preload = 'auto';
             video.autoload = true;
             video.autoplay = true;
-            video.inline = true;
+            video.playsinline = true;
             video.loop = true;
             video.crossorigin="Anonymous"
             video.src = link;
