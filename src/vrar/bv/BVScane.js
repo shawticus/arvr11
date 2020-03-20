@@ -233,7 +233,6 @@ export class BVScane  {
             video.preload = 'auto';
             video.autoload = true;
             video.autoplay = true;
-            video.WebKitPlaysInline  = true;
             video.loop = true;
             video.crossorigin="Anonymous"
             video.src = link;
