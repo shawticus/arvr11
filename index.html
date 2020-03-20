@@ -95,19 +95,12 @@
                         bvScane.content3d.scale.set(s,s,s);
                       
                         if(window.dcmParam.mobile==true){
-                            bvScane.setVideo("resources/2048.mp4");
+                            bvScane.setVideo("resources/2000.mp4");
                         }else{
                             bvScane.setVideo("resources/bravo_video.mp4");
                         }
-                        
-                        
-                        
-
                        // bvScane.setVideo("https://vto.s3-us-west-2.amazonaws.com/bravo_video.mp4");
-
-            
                         menu=new IMenu( objectBase, function(s,p){
-
                         })
                         menu.mScenePos.set3d(bvScane.content3d, self.contents)
                         menu.setHelp([
@@ -115,28 +108,19 @@
                           "resources/help1.png",
                           "resources/help2.png",
                         ])
-
-                       
                         window.onresize = sizeWindow;
                         sizeWindow()
-                    
                     }
                     load(null);
                 },
-
                 tick: function() {
                     this.camera.position.y=1.7
                     if(menu)menu.tick();
                     if(bvScane)bvScane.update()
                 }
             }) 
-
         }
-
-
         window.init()
-
-
         window.onload = () => {
             window.init()
             if( XR8.XrDevice.isDeviceBrowserCompatible() ) {
@@ -151,9 +135,7 @@
 
   </head>
   <body>
-    <video src = "resources/2048.mp4" autoplay loop muted playsinline>
-      <source src="resources/2048.mp4" type="video/mp4"></source>
-    </video> 
+    <video id="video" autoplay playsinline></video> 
     <a-scene>
 
       <a-camera
