@@ -17,9 +17,12 @@ export class BVVideo  {
         this.video.preload = 'auto';
         this.video.autoload = true;
         this.video.autoplay = true;
-        this.video.setAttribute("playinLine", "");
+        this.video.setAttribute("playsinline", "");
         this.video.loop = true;
         this.video.crossOrigin = "Anonymous"
+        console.log("checkpoint-1");
+        console.log(this.video)
+        console.log("checkpoint-2")
 
        /* var dC1 = new DCont(this.par.dCont); 
             dC1.scale=0.2
