@@ -17,9 +17,9 @@ export class BVVideo  {
         this.video.preload = 'auto';
         this.video.autoload = true;
         this.video.autoplay = true;
+        this.video.setAttribute("playinLine", "");
         this.video.loop = true;
         this.video.crossOrigin = "Anonymous"
-
 
        /* var dC1 = new DCont(this.par.dCont); 
             dC1.scale=0.2

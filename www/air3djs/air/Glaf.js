@@ -204,6 +204,7 @@ export class MatetialVideo  {
         //video.style.position = 'fixed';
         //video.style.top = '500px';
         video.src = link;
+        console.log("checkpoin----")
         //video.autoplay = true;
         video.preload = 'auto'
         video.autoload = true

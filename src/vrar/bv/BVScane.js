@@ -226,8 +226,6 @@ export class BVScane  {
 
         
         this.testV = function(link){ 
-            
-
             //video = document.createElement('video');
             video = document.getElementById('video'); 
             video.preload = 'auto';
@@ -236,8 +234,9 @@ export class BVScane  {
             video.loop = true;
             video.crossorigin="Anonymous"
             video.src = link;
-
-
+            console.log("checkpoint-1");
+            console.log(video)
+            console.log("checkpoint-2")
             this.window=new DWindow(this.dCont,300,220,"testV");
             
             var dC1 = new DCont(this.window.content); 
