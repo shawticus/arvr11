@@ -13,16 +13,15 @@ export class BVVideo  {
         this._bCanvas = false;
 
 
-        this.video = document.createElement('video');
+        // this.video = document.createElement('video');
+        this.video = document.getElementById('video1');
         this.video.preload = 'auto';
         this.video.autoload = true;
         this.video.autoplay = true;
         this.video.setAttribute("playsinline", "");
         this.video.loop = true;
-        this.video.crossOrigin = "Anonymous"
-        console.log("checkpoint-1");
-        console.log(this.video)
-        console.log("checkpoint-2")
+        // this.video.crossOrigin = "Anonymous"
+        this.video.crossOrigin = "Anonymous";
 
        /* var dC1 = new DCont(this.par.dCont); 
             dC1.scale=0.2
@@ -38,10 +37,6 @@ export class BVVideo  {
 
         this.creatCanvas=function(){
             if(this.canvas!=undefined)return
-
-
-            trace("@@@@@@@@@@@creatCanvas@@@@@@@@@@")
-
             this.canvas = document.createElement('canvas'); // канвас для картинки                
                 //canvas.width=video.videoWidth;
                 //canvas.height=video.videoHeight;
@@ -67,8 +62,6 @@ export class BVVideo  {
             }
         }
 
-
-
         this.clear=function() {  
             this.material.dispose() 
             this.texture.dispose() 
@@ -81,18 +74,11 @@ export class BVVideo  {
             if(this._bCanvas != true) return          
             if(this.dragCan == false) return 
 
-            trace(self.canvas.width+"   "+self.canvas.height)
+            // trace(self.canvas.width+"   "+self.canvas.height)
             self.ctx.clearRect(0, 0, self.canvas.width, self.canvas.height); 
             self.ctx.drawImage(self.video, 0, 0, self.canvas.width, self.canvas.height); 
-
-
             self.ctx.rect(Math.random()*self.canvas.width, Math.random()*self.canvas.height, 100, 100);    
-
-            
-            //self.ctx.fill();
-
             self.texture.needsUpdate = true;
-            trace("--")   
         }
 
 
@@ -112,7 +98,6 @@ export class BVVideo  {
 
 
     set bCanvas(value) {
-        trace(this._bCanvas+">>",value)   
         //if(this._bCanvas!=value){         
             this._bCanvas= value; 
             if(this._bCanvas==true){
