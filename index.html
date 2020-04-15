@@ -100,20 +100,24 @@
                             bvScane.setVideo("resources/bravo_video.mp4", true);
                         }
                        // bvScane.setVideo("https://vto.s3-us-west-2.amazonaws.com/bravo_video.mp4");
+                        window.dcmParam.fontFamily="Century Gothic"
+                        window.dcmParam.borderRadius=15
                         menu=new IMenu( objectBase, function(s,p){
                         })
                         menu.mScenePos.set3d(bvScane.content3d, self.contents)
+                        console.log(bvScane.content3d)
                         menu.setHelp([
                           "resources/help.png",
                           "resources/help1.png",
                           "resources/help2.png",
                         ])
 
-                        var bat= new DButton(menu.dCont,100,100,"If not working. Try the little video.",function(){
+                        var bat= new DButton(menu.dCont,0,104,"If not working. Try the little video.",function(){
                             bvScane.setVideo("resources/1024.mp4");
                         })
                         bat.width=300
-
+                        console.log(window.dcmParam.fontFamily)
+                        console.log(menu.dCont)
                         window.onresize = sizeWindow;
                         sizeWindow()
                     }
