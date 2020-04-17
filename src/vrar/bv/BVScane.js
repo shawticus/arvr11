@@ -337,7 +337,7 @@ export default class ModLoad  {
         this.parsO3d=function(c, m){
             if(c.geometry!=undefined){
                 
-                if(c.name.indexOf("Mesh.023")!=-1){
+                if(c.name.indexOf("VideoScreen")!=-1){
                    
                     c.material=m
                 }
@@ -351,11 +351,18 @@ export default class ModLoad  {
 
 
         this.gltfLoader = new THREE.GLTFLoader();
-        this.gltfLoader.load('./resources/DemoRoom.gltf', gltf => {
+        this.gltfLoader.load('./resources/DemoRoom.glb', gltf => {
             var s=100;
             gltf.scene.scale.set(s, s, s)
             gltf.scene.rotation.y=-Math.PI/2
             this.content3d.add( gltf.scene )
+
+            //add light
+            this.light = new THREE.PointLight( 0xff0000, 1, 100 );
+            this.light.castShadow = true; 
+            this.light.position.set( 300, 300, 300 );
+            this.content3d.add( this.light )
+            
             this.c3d=gltf.scene
             this.pars()
                      

@@ -87,7 +87,9 @@
                         var s=0.01
 
                         bvScane.content3d.scale.set(s,s,s);
-                      
+                        //Setiing initial position
+                        bvScane.content3d.position.set(1, 0, -6.5)
+                        bvScane.content3d.rotation.set(0, Math.PI / 10, 0)
                         if(window.dcmParam.mobile==true){
                             // bvScane.setVideo("resources/2048.mp4", true);
                             if(window.dcmParam.isMobile.iOS()!=null){
@@ -105,7 +107,7 @@
                         menu=new IMenu( objectBase, function(s,p){
                         })
                         menu.mScenePos.set3d(bvScane.content3d, self.contents)
-                        console.log(bvScane.content3d)
+                        //console.log(bvScane.content3d)
                         menu.setHelp([
                           "resources/help.png",
                           "resources/help1.png",
@@ -116,8 +118,8 @@
                             bvScane.setVideo("resources/1024.mp4");
                         })
                         bat.width=300
-                        console.log(window.dcmParam.fontFamily)
-                        console.log(menu.dCont)
+                        //console.log(window.dcmParam.fontFamily)
+                        //console.log(menu.dCont)
                         window.onresize = sizeWindow;
                         sizeWindow()
                     }
