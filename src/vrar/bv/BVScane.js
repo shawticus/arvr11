@@ -335,12 +335,20 @@ export default class ModLoad  {
         }
 
         this.parsO3d=function(c, m){
+            console.log(c.name)
             if(c.geometry!=undefined){
                 
                 if(c.name.indexOf("VideoScreen")!=-1){
                    
                     c.material=m
                 }
+
+
+                if(c.name.indexOf("Room")!=-1){
+                   
+                    c.material.colorWrite = false
+                }
+
             }
 
 
