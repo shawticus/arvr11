@@ -39,7 +39,7 @@
             if(menu!=undefined)menu.sizeWindow(w,h,1);
         }
 
-        window.korektTrace = function() {
+       /* window.korektTrace = function() {
             var textarea = document.createElement('textarea')
             textarea.style.width=(150)+"px";
             textarea.style.height=(250)+"px";
@@ -51,7 +51,7 @@
             window.trace=function(s){           
                 textarea.value=s+"\n"+textarea.value
             }
-        }
+        }*/
 
         //korektTrace()
         trace("v222")
@@ -88,8 +88,8 @@
 
                         bvScane.content3d.scale.set(s,s,s);
                         //Setiing initial position
-                        bvScane.content3d.position.set(1, 0, -6.5)
-                        bvScane.content3d.rotation.set(0, Math.PI / 10, 0)
+                        bvScane.content3d.position.set(2.8, 0, -6.5)
+                        bvScane.content3d.rotation.set(0, 0, 0)
                         if(window.dcmParam.mobile==true){
                             // bvScane.setVideo("resources/2048.mp4", true);
                             if(window.dcmParam.isMobile.iOS()!=null){
@@ -102,22 +102,22 @@
                             bvScane.setVideo("resources/bravo_video.mp4", true);
                         }
                        // bvScane.setVideo("https://vto.s3-us-west-2.amazonaws.com/bravo_video.mp4");
-                        window.dcmParam.fontFamily="Century Gothic"
+                        //window.dcmParam.fontFamily="Century Gothic"
                         window.dcmParam.borderRadius=15
                         menu=new IMenu( objectBase, function(s,p){
                         })
                         menu.mScenePos.set3d(bvScane.content3d, self.contents)
                         //console.log(bvScane.content3d)
                         menu.setHelp([
-                          "resources/help.png",
-                          "resources/help1.png",
-                          "resources/help2.png",
+                          "resources/tap_to_place.png",
+                         /* "resources/help1.png",
+                          "resources/help2.png",*/
                         ])
 
-                        var bat= new DButton(menu.dCont,0,104,"If not working. Try the little video.",function(){
+                        /*var bat= new DButton(menu.dCont,0,104,"If not working. Try the little video.",function(){
                             bvScane.setVideo("resources/1024.mp4");
                         })
-                        bat.width=300
+                        bat.width=300*/
                         //console.log(window.dcmParam.fontFamily)
                         //console.log(menu.dCont)
                         window.onresize = sizeWindow;
@@ -135,12 +135,12 @@
         window.init()
         window.onload = () => {
             window.init()
-            if( XR8.XrDevice.isDeviceBrowserCompatible() ) {
+            /*if( XR8.XrDevice.isDeviceBrowserCompatible() ) {
                 trace("-3-")
                 const scene = document.querySelector('a-scene');
                 scene.setAttribute('xrweb', '');
                 scene.setAttribute('xrextras-tap-recenter', '');
-            }
+            }*/
         }
     </script>
   </head>

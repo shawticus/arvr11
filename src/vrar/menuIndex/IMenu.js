@@ -117,11 +117,11 @@ export class MHelp  {
         this.dCont = new DCont(this.par.dCont);
 
 
-        this.button = new DButton(this.par.dCont, this.margin, 0, 'SKIP', () => {
+       /* this.button = new DButton(this.par.dCont, this.margin, 0, 'SKIP', () => {
             self.sah=2222;
             self.button.visible=false;
             self.dCont.visible=false;
-        })
+        })*/
         //this.window=new DWindow(this.dCont,0,0,"this.type");
 
         this.funDrag=function(){
@@ -159,11 +159,18 @@ export class MHelp  {
                 this.array[i].setXY(_w/_s/2,_h/_s/2);
             }
 
-            this.button.x=(_w/_s-this.button.width)/2
-            this.button.y=_h/_s-50;
+            /*this.button.x=(_w/_s-this.button.width)/2
+            this.button.y=_h/_s-50;*/
         }        
 
         this.md=function(e){          
+            window.init()
+            if( XR8.XrDevice.isDeviceBrowserCompatible() ) {
+                trace("-3-")
+                const scene = document.querySelector('a-scene');
+                scene.setAttribute('xrweb', '');
+                scene.setAttribute('xrextras-tap-recenter', '');
+            }
             self.sah++;
         }
 
@@ -285,14 +292,14 @@ export class MScenePos {
         // const facingFar = new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0))
 
         this.dCont = new DCont(this.par.dCont)
-        this.buttonInside = new DButton(this.dCont, this.margin, this.margin, 'inside', () => {
+        /*this.buttonInside = new DButton(this.dCont, this.margin, this.margin, 'inside', () => {
             this.content3d.position.set(0, 0, 0)
             this.content3d.rotation.set(0, 0, 0)
 
             this.scene.emit('recenter', /*{
                 origin: {x: 0, y: 0, z: 0},
                 facing: facingInside,
-            }*/)
+            }*\/)
         })
         this.buttonOutside = new DButton(this.dCont, this.margin, 0, 'outside', () => {
             this.content3d.position.set(1, 0, -6.5)
@@ -301,7 +308,7 @@ export class MScenePos {
             this.scene.emit('recenter', /*{
                 origin: {x: 2, y: 0, z: -6.5},
                 facing: facingOutside,
-            }*/)
+            }*\/)
             // this.camera.rotation.set(0, Math.PI / 10, 0)
         })
         this.buttonFar = new DButton(this.dCont, this.margin, 0, 'far', () => {
@@ -311,14 +318,14 @@ export class MScenePos {
             this.scene.emit('recenter', /*{
                 origin: {x: 0, y: 0, z: 0},
                 facing: facingFar,
-            }*/)
+            }*\/)
 
             this.tweenPosition.to({x: 1, y: 0, z: -6.5},3000).start()
             this.tweenRotation.to({x: 0, y: Math.PI / 10, z: 0},3000).start()
         })
 
         this.buttonOutside.y = this.buttonInside.y + this.buttonInside.height + this.margin
-        this.buttonFar.y = this.buttonOutside.y + this.buttonOutside.height + this.margin
+        this.buttonFar.y = this.buttonOutside.y + this.buttonOutside.height + this.margin*/
     }
 
     set3d(content3d, scene) {
