@@ -111,7 +111,7 @@ export class BVVideo  {
                 this.texture.format = THREE.RGBFormat;
                 //this.texture.needsUpdate = true;
 
-                this.material=new THREE.MeshPhongMaterial({color:0xffffff, map:this.texture})
+                this.material=new THREE.MeshBasicMaterial({color:0xffffff, map:this.texture})
                 
                 //this.material.map=this.texture
             } 
