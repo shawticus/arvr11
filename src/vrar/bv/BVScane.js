@@ -1,9 +1,5 @@
 import { BVVideo } from './BVVideo.js';
 import { BVStand } from './BVStand.js';
-/*import BVReflection from './BVReflection'
-import BVAdditional from './BVAdditional'
-
-import BVLight from './BVLight';*/
 
 export class BVScane  {
   	constructor(par, objectBase, visi3D) {  		
@@ -38,12 +34,6 @@ export class BVScane  {
         this.matTest=new THREE.MeshPhongMaterial({color:0xff0000})  
          this.texture   
         this.modLoad=new ModLoad(this);
-       // this.bvReflection = new BVReflection(this);
-       // this.bvAdditional = new BVAdditional(this); 
-
-
-        //this.bvLight = new BVLight(this);
-
 
         this.arrVideo=[]; 
         this.arrStand=[];
@@ -271,8 +261,8 @@ export class BVScane  {
                 self.texture.format = THREE.RGBFormat;
                 self.texture.needsUpdate = true;
 
-                self.material=new THREE.MeshPhongMaterial({color:0xffffff, map:self.texture})
-
+                self.material=new THREE.MeshBasicMaterial({color:0xffffff, map:self.texture})
+                
                 self.modLoad.setV(self.material)
             }
 
@@ -337,26 +327,52 @@ export default class ModLoad  {
         this.parsO3d=function(c, m){
             console.log(c.name)
             if(c.geometry!=undefined){
-                
+                console.log(c.name)
                 if(c.name.indexOf("VideoScreen")!=-1){
-                   
                     c.material=m
+                    console.log(m)
+                    c.material.texture = new THREE.VideoTexture( this.video );
+                    // c.material.texture.minFilter = THREE.LinearFilter;
+                    // c.material.texture.magFilter = THREE.LinearFilter;
+                    // c.material.texture.format = THREE.RGBFormat;
+                    c.geometry.renderOrder = 1;
                 }
 
 
-                if(c.name.indexOf("Room")!=-1){
-                   
-                    c.material.colorWrite = false
+                if(c.name.indexOf("BlockingMat")!=-1){
+                    c.material.colorWrite = false;
+        c.geometry.renderOrder = 0;
                 }
 
             }
 
+            
 
             for (var i = 0; i < c.children.length; i++) {
                 this.parsO3d(c.children[i],m)
             }
         }
 
+                    //add light
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
+                    this.light.castShadow = true; 
+                    this.light.position.set( -200, 150, -100 );
+                    this.content3d.add( this.light )
+
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
+                    this.light.castShadow = true; 
+                    this.light.position.set( 200, 150, -100 );
+                    this.content3d.add( this.light )
+
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
+                    this.light.castShadow = true; 
+                    this.light.position.set( 0, 150, 200 );
+                    this.content3d.add( this.light )
+
+                    this.light = new THREE.PointLight( 0xffffff, 1, 4 );
+                    this.light.castShadow = true; 
+                    this.light.position.set( -350, 100, 500 );
+                    this.content3d.add( this.light )
 
         this.gltfLoader = new THREE.GLTFLoader();
         this.gltfLoader.load('./resources/DemoRoom.glb', gltf => {
@@ -364,12 +380,6 @@ export default class ModLoad  {
             gltf.scene.scale.set(s, s, s)
             gltf.scene.rotation.y=-Math.PI/2
             this.content3d.add( gltf.scene )
-
-            //add light
-            this.light = new THREE.PointLight( 0xff0000, 1, 100 );
-            this.light.castShadow = true; 
-            this.light.position.set( 300, 300, 300 );
-            this.content3d.add( this.light )
             
             this.c3d=gltf.scene
             this.pars()
