@@ -354,24 +354,24 @@ export default class ModLoad  {
         }
 
                     //add light
-                    this.light = new THREE.PointLight( 0xffffff, .4, 8 );
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
                     this.light.castShadow = true; 
-                    this.light.position.set( -340, 250, -170 );
+                    this.light.position.set( -272, 204, -136 );
                     this.content3d.add( this.light )
 
-                    this.light = new THREE.PointLight( 0xffffff, .4, 8 );
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
                     this.light.castShadow = true; 
-                    this.light.position.set( 340, 250, -170 );
+                    this.light.position.set( 272, 204, -136 );
                     this.content3d.add( this.light )
 
-                    this.light = new THREE.PointLight( 0xffffff, .4, 8 );
+                    this.light = new THREE.PointLight( 0xffffff, .4, 5 );
                     this.light.castShadow = true; 
-                    this.light.position.set( 0, 250, 340 );
+                    this.light.position.set( 0, 204, 272 );
                     this.content3d.add( this.light )
 
-                    this.light = new THREE.PointLight( 0xffffff, 1, 6 );
+                    this.light = new THREE.PointLight( 0xffffff, 1, 4 );
                     this.light.castShadow = true; 
-                    this.light.position.set( -350, 250, 850 );
+                    this.light.position.set( -350, 150, 650 );
                     this.content3d.add( this.light )
 
         this.gltfLoader = new THREE.GLTFLoader();
