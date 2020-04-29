@@ -261,7 +261,7 @@ export class BVScane  {
                 self.texture.format = THREE.RGBFormat;
                 self.texture.needsUpdate = true;
 
-                self.material=new THREE.MeshBasicMaterial({color:0xffffff, map:self.texture})
+                self.material=new THREE.MeshBasicMaterial({color:0xffffff, flatShading: true, map:self.texture})
                 
                 self.modLoad.setV(self.material)
             }
